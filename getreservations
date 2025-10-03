@@ -1,0 +1,10 @@
+"shipTo": {
+      "locationType": "RESIDENTIAL",
+      "locationId": "***",
+      "locationUUId": "abbvcdccdbsnsksbaj",
+      "address": {
+        "areacode": "HLL**",
+        "addressID": "47987*",
+        "country": "enter country code",
+        "buildingType": "FLATGROUND",
+        "postcode": "postcode of area"
