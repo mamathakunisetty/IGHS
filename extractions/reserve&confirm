@@ -1,0 +1,24 @@
+USE SkDelivery;
+
+SELECT 
+    ReservationID,
+    CustomerIdentity,
+    ReferenceOrderID,
+    SlotStart,
+    SlotEnd,
+    ReservationExpiry,
+    StatusID,
+    OrderWeight,
+    Volume,
+    ItemCount,
+    RetailOutletNumber,
+    Latitude,
+    Longitude,
+    TotalDoorstepTime,
+    Postcode
+FROM SkDelivery.delivery.OrderDelivery(nolock) od
+INNER JOIN SkDelivery.delivery.DeliverySlot(nolock) ds
+    ON ds.DeliverySlotID = od.DeliverySlotID
+    AND ds.SlotStart >= '2024-10-22'
+    AND od.StatusID = 5
+    AND od.RetailOutletNumber = 12345;  -- Dummy outlet number
