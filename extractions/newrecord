@@ -1,0 +1,26 @@
+-- Step 1: Insert into Delivery table (Dummy safe values)
+USE SkDelivery;
+
+INSERT INTO [delivery].[IDODOStoreConf] 
+VALUES (12345, 1, 0, '2024-10-22 23:59:00.140', 1, 1);
+-- 12345 is a dummy StoreId instead of a real one
+
+--------------------------------------------------------
+-- Step 2: Enable Delivery Scheduler (Dummy safe values)
+USE [DeliveryScheduler];
+
+INSERT INTO [DeliveryScheduler].[IDODOStoreConf]
+           ([StoreId]
+           ,[DeliveryType]
+           ,[MigrationEnabled]
+           ,[EnableDate]
+           ,[IDODOEnabled]
+           ,[ClickAndCollect_Return])
+     VALUES
+           (12345        -- Dummy StoreId
+           ,1
+           ,0
+           ,GETUTCDATE() -- current UTC time for demo
+           ,1
+           ,1);
+GO
