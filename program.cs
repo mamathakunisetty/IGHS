@@ -23,9 +23,7 @@ namespace CodeCoverage
 
 #if DEBUG
 
-            coveragePath = (from fileInfo in (new DirectoryInfo(@"..\..\")).GetFiles("data.coverage", SearchOption.AllDirectories)
-                            orderby fileInfo.CreationTime descending
-                            select fileInfo.FullName).First();
+           
             lookupPath = string.Format(@"{0}\out\", Directory.GetParent(Directory.GetParent(Directory.GetParent(coveragePath).ToString()).ToString()).ToString());
 #else
            DirectoryInfo dirInfo = new DirectoryInfo(@"..\");
